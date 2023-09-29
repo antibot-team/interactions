@@ -22,7 +22,7 @@ export interface ApplicationCommandOptions {
    * Localization dictionary for the name field. Values follow the same restrictions as name
    * @returns {ApplicationCommandLocalization}
    */
-  name_localization: ApplicationCommandLocalization;
+  name_localizations?: ApplicationCommandLocalization;
   /**
    * description
    * 1-100 character description
