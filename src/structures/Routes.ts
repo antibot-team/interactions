@@ -10,11 +10,11 @@ export class Routes {
       );
     } else if (!(typeof applicationId === "string")) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID must be a Snowflake."
+        "[@antibot/interactions#Routes] Application ID must be a Snowflake."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake and must be a string."
+        "[@antibot/interactions#Routes] Must provide a snowflake and must be a string."
       );
     }
   }
@@ -24,11 +24,11 @@ export class Routes {
       return "/applications/" + applicationId + "/commands";
     } else if (!(typeof applicationId === "string")) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID must be a Snowflake."
+        "[@antibot/interactions#Routes] Application ID must be a Snowflake."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake and must be a string."
+        "[@antibot/interactions#Routes] Must provide a snowflake and must be a string."
       );
     }
   }
@@ -44,11 +44,11 @@ export class Routes {
       !(typeof commandId === "string")
     ) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake for both application ID and command ID. They must be strings."
+        "[@antibot/interactions#Routes] Must provide a snowflake for both application ID and command ID. They must be strings."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID and command ID must be snowflakes and must be strings."
+        "[@antibot/interactions#Routes] Application ID and command ID must be snowflakes and must be strings."
       );
     }
   }
@@ -64,11 +64,11 @@ export class Routes {
       !(typeof commandId === "string")
     ) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake for both application ID and command ID. They must be strings."
+        "[@antibot/interactions#Routes] Must provide a snowflake for both application ID and command ID. They must be strings."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID and command ID must be snowflakes and must be strings."
+        "[@antibot/interactions#Routes] Application ID and command ID must be snowflakes and must be strings."
       );
     }
   }
@@ -84,11 +84,11 @@ export class Routes {
       !(typeof commandId === "string")
     ) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake for both application ID and command ID. They must be strings."
+        "[@antibot/interactions#Routes] Must provide a snowflake for both application ID and command ID. They must be strings."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID and command ID must be snowflakes and must be strings."
+        "[@antibot/interactions#Routes] Application ID and command ID must be snowflakes and must be strings."
       );
     }
   }
@@ -98,11 +98,11 @@ export class Routes {
       return "/applications/" + applicationId + "/commands";
     } else if (!(typeof applicationId === "string")) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID must be a Snowflake."
+        "[@antibot/interactions#Routes] Application ID must be a Snowflake."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake and must be a string."
+        "[@antibot/interactions#Routes] Must provide a snowflake and must be a string."
       );
     }
   }
@@ -124,11 +124,11 @@ export class Routes {
       !(typeof guildId === "string")
     ) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake for both application ID and guild ID. They must be strings."
+        "[@antibot/interactions#Routes] Must provide a snowflake for both application ID and guild ID. They must be strings."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID and guild ID must be snowflakes and must be strings."
+        "[@antibot/interactions#Routes] Application ID and guild ID must be snowflakes and must be strings."
       );
     }
   }
@@ -146,11 +146,11 @@ export class Routes {
       !(typeof guildId === "string")
     ) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake for both application ID and guild ID. They must be strings."
+        "[@antibot/interactions#Routes] Must provide a snowflake for both application ID and guild ID. They must be strings."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID and guild ID must be snowflakes and must be strings."
+        "[@antibot/interactions#Routes] Application ID and guild ID must be snowflakes and must be strings."
       );
     }
   }
@@ -175,11 +175,11 @@ export class Routes {
       !(typeof options.commandId === "string")
     ) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake for all of the following. Application ID, guild ID, and command ID. They must be strings."
+        "[@antibot/interactions#Routes] Must provide a snowflake for all of the following. Application ID, guild ID, and command ID. They must be strings."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID, guild ID, and command ID must be snowflakes and must be strings."
+        "[@antibot/interactions#Routes] Application ID, guild ID, and command ID must be snowflakes and must be strings."
       );
     }
   }
@@ -204,11 +204,11 @@ export class Routes {
       !(typeof options.commandId === "string")
     ) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake for all of the following. Application ID, guild ID, and command ID. They must be strings."
+        "[@antibot/interactions#Routes] Must provide a snowflake for all of the following. Application ID, guild ID, and command ID. They must be strings."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID, guild ID, and command ID must be snowflakes and must be strings."
+        "[@antibot/interactions#Routes] Application ID, guild ID, and command ID must be snowflakes and must be strings."
       );
     }
   }
@@ -233,11 +233,11 @@ export class Routes {
       !(typeof options.commandId === "string")
     ) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake for all of the following. Application ID, guild ID, and command ID. They must be strings."
+        "[@antibot/interactions#Routes] Must provide a snowflake for all of the following. Application ID, guild ID, and command ID. They must be strings."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID, guild ID, and command ID must be snowflakes and must be strings."
+        "[@antibot/interactions#Routes] Application ID, guild ID, and command ID must be snowflakes and must be strings."
       );
     }
   }
@@ -255,11 +255,11 @@ export class Routes {
       !(typeof guildId === "string")
     ) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake for both application ID and guild ID. They must be strings."
+        "[@antibot/interactions#Routes] Must provide a snowflake for both application ID and guild ID. They must be strings."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID and guild ID must be snowflakes and must be strings."
+        "[@antibot/interactions#Routes] Application ID and guild ID must be snowflakes and must be strings."
       );
     }
   }
@@ -281,11 +281,11 @@ export class Routes {
       !(typeof guildId === "string")
     ) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake for both application ID and guild ID. They must be strings."
+        "[@antibot/interactions#Routes] Must provide a snowflake for both application ID and guild ID. They must be strings."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID and guild ID must be snowflakes and must be strings."
+        "[@antibot/interactions#Routes] Application ID and guild ID must be snowflakes and must be strings."
       );
     }
   }
@@ -311,11 +311,11 @@ export class Routes {
       !(typeof options.commandId === "string")
     ) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake for all of the following. Application ID, guild ID, and command ID. They must be strings."
+        "[@antibot/interactions#Routes] Must provide a snowflake for all of the following. Application ID, guild ID, and command ID. They must be strings."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID, guild ID, and command ID must be snowflakes and must be strings."
+        "[@antibot/interactions#Routes] Application ID, guild ID, and command ID must be snowflakes and must be strings."
       );
     }
   }
@@ -341,11 +341,11 @@ export class Routes {
       !(typeof options.commandId === "string")
     ) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake for all of the following. Application ID, guild ID, and command ID. They must be strings."
+        "[@antibot/interactions#Routes] Must provide a snowflake for all of the following. Application ID, guild ID, and command ID. They must be strings."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID, guild ID, and command ID must be snowflakes and must be strings."
+        "[@antibot/interactions#Routes] Application ID, guild ID, and command ID must be snowflakes and must be strings."
       );
     }
   }
@@ -367,11 +367,11 @@ export class Routes {
       !(typeof guildId === "string")
     ) {
       throw new ReferenceError(
-        "[waifuslash#Routes] Must provide a snowflake for both application ID and guild ID. They must be strings."
+        "[@antibot/interactions#Routes] Must provide a snowflake for both application ID and guild ID. They must be strings."
       );
     } else {
       throw new ReferenceError(
-        "[waifuslash#Routes] Application ID and guild ID must be snowflakes and must be strings."
+        "[@antibot/interactions#Routes] Application ID and guild ID must be snowflakes and must be strings."
       );
     }
   }

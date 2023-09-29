@@ -1,9 +1,9 @@
 {
-  "name": "waifuslash",
+  "name": "@antibot/interactions",
   "version": "1.0.3",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "author": "J_DDev <69683068+JayyDoesDev@users.noreply.github.com>",
+  "author": "J_DDev",
   "license": "MIT",
   "scripts": {
     "build": "tsc",

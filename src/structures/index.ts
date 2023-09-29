@@ -11,6 +11,6 @@ export * from "./ApplicationCommandPermissionType";
 export * from "./ChannelType";
 export * from "./ChannelTypeEnum";
 export * from "./Command";
-export * from "./WaifuSlash";
+export * from "./Interactions";
 export * from "./Routes";
 export * from "./request/typings/index";

@@ -1,15 +1,16 @@
 import { ApplicationCommandOptionType } from "./ApplicationCommandOptionType";
 import { ApplicationCommandOptions } from "./ApplicationCommandOptions";
+import { ApplicationCommandType } from "./ApplicationCommandType";
 export interface ICommand {
   name: string;
-  type: ApplicationCommandOptionType;
+  type: ApplicationCommandType;
   description: string;
   options: ApplicationCommandOptions[];
 }
 
 export interface Command extends ICommand {}
 export class Command implements Partial<ICommand> {
-  public setType(type: ApplicationCommandOptionType): this {
+  public setType(type: ApplicationCommandType): this {
     this.type = type;
     return this;
   }
@@ -30,6 +31,6 @@ export class Command implements Partial<ICommand> {
   }
 
   public toJSON(): ICommand {
-    return {...this} as ICommand;
-  }  
+    return { ...this } as ICommand;
+  }
 }

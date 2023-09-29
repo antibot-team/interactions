@@ -5,8 +5,8 @@ import { Command, ICommand } from "./Command";
 import { Routes } from "./Routes";
 import { RequestManager } from "./request/RequestManager";
 import { APPLICATION_TYPE } from "./request/typings";
-export class WaifuSlash {
-  private waifu: RequestManager;
+export class Interactions {
+  private request: RequestManager;
   private api: string;
   constructor(
     protected readonly options: {
@@ -19,7 +19,7 @@ export class WaifuSlash {
     this.options.publicKey = options.publicKey;
     this.options.botID = options.botID;
     this.options.botToken = options.botToken;
-    this.waifu = new RequestManager(
+    this.request = new RequestManager(
       this.options.publicKey,
       this.options.botToken,
       this.api
@@ -37,7 +37,7 @@ export class WaifuSlash {
   public async createGlobalCommand(
     command: ICommand
   ): Promise<ApplicationCommand | void> {
-    (await this.waifu.POST<ApplicationCommand>({
+    (await this.request.POST<ApplicationCommand>({
       route: Routes.createApplicationCommand(this.options.botID),
       contentType: APPLICATION_TYPE.JSON,
       data: command,
@@ -47,7 +47,7 @@ export class WaifuSlash {
   public async getGlobalCommand(
     commandId: string
   ): Promise<ApplicationCommand | void> {
-    (await this.waifu.GET<ApplicationCommand>({
+    (await this.request.GET<ApplicationCommand>({
       route: Routes.getGlobalApplicationCommand(this.options.botID, commandId),
       contentType: APPLICATION_TYPE.JSON,
     })) as ApplicationCommand;
@@ -57,7 +57,7 @@ export class WaifuSlash {
     commandId: string,
     command: ICommand
   ): Promise<ApplicationCommand | void> {
-    (await this.waifu.PATCH<ApplicationCommand>({
+    (await this.request.PATCH<ApplicationCommand>({
       route: Routes.editGlobalApplicationCommand(this.options.botID, commandId),
       contentType: APPLICATION_TYPE.JSON,
       data: command,
@@ -65,7 +65,7 @@ export class WaifuSlash {
   }
 
   public async deleteGlobalCommand(commandId: string): Promise<void> {
-    await this.waifu.DELETE<ApplicationCommand>({
+    await this.request.DELETE<ApplicationCommand>({
       route: Routes.deleteGlobalApplicationCommand(
         this.options.botID,
         commandId
@@ -75,14 +75,14 @@ export class WaifuSlash {
   }
 
   public async getGlobalCommands(): Promise<ApplicationCommand[] | void> {
-    (await this.waifu.GET<ApplicationCommand>({
+    (await this.request.GET<ApplicationCommand>({
       route: Routes.getApplicationCommands(this.options.botID),
       contentType: APPLICATION_TYPE.JSON,
     })) as ApplicationCommand;
   }
 
   public async overwriteGlobalCommands(command: ICommand): Promise<void> {
-    await this.waifu.PUT<ApplicationCommand>({
+    await this.request.PUT<ApplicationCommand>({
       route: Routes.bulkOverGlobalApplicationCommands(this.options.botID),
       contentType: APPLICATION_TYPE.JSON,
       data: command,
@@ -93,7 +93,7 @@ export class WaifuSlash {
     guildId: Snowflake,
     command: ICommand
   ): Promise<ApplicationCommand | void> {
-    (await this.waifu.POST<ApplicationCommand>({
+    (await this.request.POST<ApplicationCommand>({
       route: Routes.createGuildApplicationCommand(this.options.botID, guildId),
       contentType: APPLICATION_TYPE.JSON,
       data: command,
@@ -103,7 +103,7 @@ export class WaifuSlash {
   public async getGuildCommands(
     guildId: Snowflake
   ): Promise<ApplicationCommand[] | void> {
-    (await this.waifu.GET<ApplicationCommand>({
+    (await this.request.GET<ApplicationCommand>({
       route: Routes.getGuildApplicationCommands(this.options.botID, guildId),
       contentType: APPLICATION_TYPE.JSON,
     })) as unknown as ApplicationCommand[];
@@ -114,7 +114,7 @@ export class WaifuSlash {
     commandId: string;
     command: ICommand;
   }): Promise<ApplicationCommand | void> {
-    (await this.waifu.PATCH<ApplicationCommand>({
+    (await this.request.PATCH<ApplicationCommand>({
       route: Routes.editGuildApplicationCommand({
         applicationId: this.options.botID,
         guildId: options.guildId,
@@ -129,7 +129,7 @@ export class WaifuSlash {
     guildId: Snowflake,
     commandId: string
   ): Promise<void> {
-    await this.waifu.DELETE<ApplicationCommand>({
+    await this.request.DELETE<ApplicationCommand>({
       route: Routes.deleteGuildApplicationCommand({
         applicationId: this.options.botID,
         guildId: guildId,
@@ -143,7 +143,7 @@ export class WaifuSlash {
     guildId: Snowflake,
     command: ICommand
   ): Promise<void> {
-    await this.waifu.PUT<ApplicationCommand>({
+    await this.request.PUT<ApplicationCommand>({
       route: Routes.bulkOverwriteGuildApplicationCommands(
         this.options.botID,
         guildId
@@ -157,7 +157,7 @@ export class WaifuSlash {
     guildID: Snowflake,
     commandId: string
   ): Promise<ApplicationCommand | void> {
-    (await this.waifu.GET<ApplicationCommand>({
+    (await this.request.GET<ApplicationCommand>({
       publicKey: true,
       route: Routes.getGuildApplicationCommand({
         applicationId: this.options.botID,
@@ -171,7 +171,7 @@ export class WaifuSlash {
   public async getGuildCommandPermissions(
     guildId: Snowflake
   ): Promise<ApplicationCommandPermissions[] | void> {
-    (await this.waifu.GET<ApplicationCommandPermissions[]>({
+    (await this.request.GET<ApplicationCommandPermissions[]>({
       publicKey: true,
       route: Routes.getGuildApplicationCommandPermissions(
         this.options.botID,
@@ -186,7 +186,7 @@ export class WaifuSlash {
     commandId: string;
     permissions: ApplicationCommandPermissions[];
   }): Promise<ApplicationCommandPermissions | void> {
-    (await this.waifu.PUT<ApplicationCommandPermissions>({
+    (await this.request.PUT<ApplicationCommandPermissions>({
       publicKey: true,
       route: Routes.editApplicationCommandPermissions({
         applicationId: this.options.botID,

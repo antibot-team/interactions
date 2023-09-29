@@ -1,19 +1,19 @@
 <p align="center">
-   <img src="https://raw.githubusercontent.com/JayyDoesDev/waifuslash/main/.github/assets/power.jpg" alt="power" width="300" height="300">
+   <img src="https://avatars.githubusercontent.com/u/88400076?s=200&v=4" alt="power" width="300" height="300">
 </p>
 
-# waifuslash
- Waifu slash is a discord slash command library made for Discord! :3
+# Interactions
+## 🗡️ An interactions library made for Discord interactions
 
- `npm i waifuslash`
+ `npm i @antibot/interactions`
  
- `yarn add waifuslash`
+ `yarn add @antibot/interaction`
 
 # Usage
 
 ```js
-const { WaifuSlash, Command } = require('waifuslash');
-const waifu = new WaifuSlash({
+const { Interactions, Command } = require('@antibot/interactions');
+const interactions = new Interactions({
     publicKey: "key",
     botID: "Bot ID",
     botToken: "Bot Token"
@@ -25,9 +25,9 @@ const pingCommand = new Command()
 .setOptions([]);
 
 async function main() {
-    const pushCommand = await waifu.createGlobalCommand(pingCommand);
+    const pushCommand = await interactions.createGlobalCommand(pingCommand);
 }
 
 main();
 ```
-All rights reserved to the owners for the "Power" character
+
