@@ -1,6 +1,6 @@
 {
   "name": "@antibot/interactions",
-  "version": "1.0.3",
+  "version": "1.1.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "J_DDev",
@@ -8,6 +8,7 @@
   "scripts": {
     "build": "tsc",
     "prepublish": "yarn build",
+    "pb": "yarn publish --access public",
     "start": "node tests/test.js"
   },
   "devDependencies": {
@@ -16,6 +17,9 @@
   },
   "dependencies": {
     "cross-fetch": "^4.0.0"
+  },
+  "repository": {
+    "url": "https://github.com/antibot-team/interactions"
   },
   "keywords": [
     "discord",
