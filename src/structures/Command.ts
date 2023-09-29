@@ -4,6 +4,7 @@ import { ApplicationCommandOptions } from "./ApplicationCommandOptions";
 import { ApplicationCommandType } from "./ApplicationCommandType";
 import type { Snowflake } from "./@type";
 import type { ApplicationCommandLocalizationPartial } from "./ApplicationCommandLocalization";
+import { Permissions } from "./utils/Permissions";
 export interface ICommand {
   name: string;
   type: ApplicationCommandType;
@@ -34,7 +35,7 @@ export class Command implements ICommand {
     return this;
   }
 
-  public Permissions(permissions: string): this {
+  public Permissions(permissions: Permissions): this {
     this.default_member_permissions = permissions;
     return this;
   }

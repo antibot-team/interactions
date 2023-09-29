@@ -14,3 +14,4 @@ export * from "./Command";
 export * from "./Interactions";
 export * from "./Routes";
 export * from "./request/typings/index";
+export * from "./utils/Permissions";

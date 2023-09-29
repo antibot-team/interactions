@@ -1,6 +1,6 @@
 {
     "out": "./docs",
-    "name": "waifuslash",
+    "name": "@antibot/interactions",
     "readme": "./README.md",
     "theme": "default",
     "entryPoints": ["src/index.ts"],

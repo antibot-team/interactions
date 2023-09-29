@@ -12,7 +12,7 @@
 # Usage
 
 ```js
-const { Interactions, Command, ApplicationCommandType } = require('@antibot/interactions');
+const { Interactions, Command, ApplicationCommandType, Permissions } = require('@antibot/interactions');
 const interactions = new Interactions({
     publicKey: "key",
     botID: "Bot ID",
@@ -24,6 +24,10 @@ const pingCommand = new Command()
 .Name("animal")
 .Type(ApplicationCommandType.Message)
 .Description("Send a random adorable animal photo")
+.Permissions(Permissions({
+    SendMessages: true,
+    EmbedLinks: true
+}))
 .Options([
     {
       name: "animal",
