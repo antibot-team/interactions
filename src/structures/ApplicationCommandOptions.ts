@@ -1,16 +1,16 @@
 import { ApplicationCommandLocalization } from "./ApplicationCommandLocalization";
 import { ApplicationCommandOptionsChoice } from "./ApplicationCommandOptionsChoice";
-import { ApplicationCommandType } from "./ApplicationCommandType";
 import type { ChannelType } from "./ChannelType";
 import type { Integer } from "./@type";
+import { ApplicationCommandOptionType } from "./ApplicationCommandOptionType";
 
 export interface ApplicationCommandOptions {
   /**
    * type
    * Type of option
-   * @returns {ApplicationCommandType}
+   * @returns {ApplicationCommandOptionType}
    */
-  type: ApplicationCommandType;
+  type: ApplicationCommandOptionType;
   /**
    * name
    * 1-32 character name
