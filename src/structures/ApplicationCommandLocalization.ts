@@ -30,3 +30,7 @@ export type ApplicationCommandLocalization =
   | "ja"
   | "zh-TW"
   | "ko";
+
+export type ApplicationCommandLocalizationPartial = Partial<
+  Record<ApplicationCommandLocalization, string>
+>;

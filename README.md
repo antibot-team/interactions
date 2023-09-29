@@ -12,20 +12,43 @@
 # Usage
 
 ```js
-const { Interactions, Command } = require('@antibot/interactions');
+const { Interactions, Command, ApplicationCommandType } = require('@antibot/interactions');
 const interactions = new Interactions({
     publicKey: "key",
     botID: "Bot ID",
-    botToken: "Bot Token"
+    botToken: "Bot Token",
+    debug: true
 });
 
 const pingCommand = new Command()
-.setName("ping")
-.setDescription("Pong!")
-.setOptions([]);
+.Name("animal")
+.Type(ApplicationCommandType.Message)
+.Description("Send a random adorable animal photo")
+.Options([
+    {
+      name: "animal",
+      description: "The type of animal",
+      type: ApplicationCommandType.MESSAGE,
+      required: true,
+      choices: [
+        {
+          name: "Dog",
+          value: "animal_dog",
+        },
+        {
+          name: "Cat",
+          value: "animal_cat",
+        },
+        {
+          name: "Penguin",
+          value: "animal_penguin",
+        },
+      ],
+    },
+  ]);
 
 async function main() {
-    const pushCommand = await interactions.createGlobalCommand(pingCommand);
+ await interactions.createGlobalCommand(pingCommand);
 }
 
 main();

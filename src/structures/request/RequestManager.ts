@@ -39,11 +39,13 @@ export class RequestManager {
   constructor(
     public publicKey: string,
     public token: string,
-    public api: string
+    public api: string,
+    public debug?: boolean
   ) {
     this.publicKey = publicKey;
     this.token = token;
     this.api = api;
+    this.debug = debug;
   }
   public async GET<T>(opts: IRequestMethodOptions): Promise<T | void> {
     (await this.request<T>({
@@ -126,6 +128,9 @@ export class RequestManager {
         (x) => {
           x.json()
             .then((res) => {
+              if (this.debug) {
+                console.log(res);
+              }
               return resolve(res) as T;
             })
             .catch(() => {

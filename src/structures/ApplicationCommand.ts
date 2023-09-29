@@ -9,7 +9,7 @@ export interface ApplicationCommand {
    * Unique ID of command
    * @returns {Snowflake}
    */
-   id: Snowflake;
+  id: Snowflake;
   /**
    * type
    * Type of command, defaults to 1
@@ -34,6 +34,12 @@ export interface ApplicationCommand {
    * @returns {ApplicationCommandLocalization}
    */
   name_localization?: ApplicationCommandLocalization;
+  /**
+   * name
+   * Name of command, 1-32 characters
+   * @returns string
+   */
+  name: string;
   /**
    * description
    * Description for CHAT_INPUT commands, 1-100 characters. Empty string for USER and MESSAGE commands

@@ -1,44 +1,25 @@
 const {
-  WaifuSlash,
   Command,
   ApplicationCommandOptionType,
   ApplicationCommandType,
+  Interactions,
 } = require("../dist");
 const config = require("./config.json");
-const waifu = new WaifuSlash({
+const interaction = new Interactions({
   publicKey: config.publicKey,
   botID: config.botID,
   botToken: config.botToken,
+  debug: true,
 });
 
-const blepCommand = new Command()
-  .setName("animal")
-  .setType(ApplicationCommandOptionType.SUB_COMMAND)
-  .setDescription("Send a random adorable animal photo")
-  .setOptions([
-    {
-      name: "animal",
-      description: "The type of animal",
-      type: ApplicationCommandType.MESSAGE,
-      required: true,
-      choices: [
-        {
-          name: "Dog",
-          value: "animal_dog",
-        },
-        {
-          name: "Cat",
-          value: "animal_cat",
-        },
-        {
-          name: "Penguin",
-          value: "animal_penguin",
-        },
-      ],
-    },
-  ]);
+const cmd = new Command()
+  .Name("ddd")
+  .Description("d")
+  .Options([])
+  .Permissions("32")
+  .ForNSFW(false);
 async function test() {
-  await waifu.getGlobalCommands();
+  interaction.createGuildCommand("845605014663856158", cmd);
 }
 
 test();

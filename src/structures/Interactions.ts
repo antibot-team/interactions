@@ -13,6 +13,7 @@ export class Interactions {
       publicKey: string;
       botID: string;
       botToken: string;
+      debug?: boolean;
     }
   ) {
     this.api = "https://discord.com/api/v10";
@@ -22,7 +23,8 @@ export class Interactions {
     this.request = new RequestManager(
       this.options.publicKey,
       this.options.botToken,
-      this.api
+      this.api,
+      this.options.debug
     );
   }
 
