@@ -22,7 +22,7 @@ const interactions = new Interactions({
 
 const pingCommand = new Command()
 .Name("animal")
-.Type(ApplicationCommandType.Message)
+.Type(ApplicationCommandType.MESSAGE)
 .Description("Send a random adorable animal photo")
 .Permissions(Permissions({
     SendMessages: true,
@@ -56,5 +56,20 @@ async function main() {
 }
 
 main();
+```
+
+# Permissions
+
+```js
+const { 
+  PermissionBitToNumber,
+  Permissions, 
+  PermissionsToHuman
+  } = require("@antibot/interactions");
+
+  console.log(PermissionBitToNumber(Permissions({ SendMessages: true }))); // 2048
+  console.log(
+    PermissionsToHuman(PlantPermission(Permissions({ SendMessages: true })))
+  ); // [ 'SEND_MESSAGES' ]
 ```
 
