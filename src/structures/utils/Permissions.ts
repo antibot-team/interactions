@@ -300,11 +300,20 @@ export function PlantPermission(permission: Permissions): bigint {
   return BigInt(permission);
 }
 
-export function PerfectBit(bitField: bigint): number {
+export function PerfectBitNUM(bitField: bigint): number {
   //@ts-ignore
   return Number(String(bitField).replace("n", /\s+/));
 }
 
+export function PerfectBitSTR(bitField: bigint): string {
+  //@ts-ignore
+  return String(bitField).replace("n", /\s+/);
+}
+
 export function PermissionBitToNumber(permission: typeof Permissions): number {
-  return PerfectBit(permission as any);
+  return PerfectBitNUM(permission as any);
+}
+
+export function PermissionBitToString(permission: typeof Permissions): string {
+  return PerfectBitSTR(permission as any);
 }
