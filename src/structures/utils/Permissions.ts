@@ -310,10 +310,10 @@ export function PerfectBitSTR(bitField: bigint): string {
   return String(bitField).replace("n", /\s+/);
 }
 
-export function PermissionBitToNumber(permission: typeof Permissions): number {
+export function PermissionBitToNumber(permission: any): number {
   return PerfectBitNUM(permission as any);
 }
 
-export function PermissionBitToString(permission: typeof Permissions): string {
+export function PermissionBitToString(permission: any): string {
   return PerfectBitSTR(permission as any);
 }
