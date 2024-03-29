@@ -5,6 +5,8 @@ import { ApplicationCommandType } from "./ApplicationCommandType";
 import type { Snowflake } from "./@type";
 import type { ApplicationCommandLocalizationPartial } from "./ApplicationCommandLocalization";
 import { Permissions } from "./utils/Permissions";
+import { IntegrationType } from "./IntegrationTypes";
+import { InteractionContextType } from "./InteractionContextType";
 export interface ICommand {
   name: string;
   type: ApplicationCommandType;
@@ -15,10 +17,12 @@ export interface ICommand {
   description_localizations?: ApplicationCommandLocalizationPartial;
   default_member_permissions?: string;
   dm_permission?: boolean;
+  integration_types?: IntegrationType[];
+  contexts?: InteractionContextType[]
   nsfw?: boolean;
 }
 
-export interface Command extends ICommand {}
+export interface Command extends ICommand { }
 export class Command implements ICommand {
   public Type(type: ApplicationCommandType): this {
     this.type = type;
@@ -64,6 +68,16 @@ export class Command implements ICommand {
 
   public ForDMS(dms: boolean): this {
     this.dm_permission = dms;
+    return this;
+  }
+
+  public IntegrationTypes(types: IntegrationType[]): this {
+    this.integration_types = types;
+    return this;
+  }
+
+  public ContextTypes(contexts: InteractionContextType[]): this {
+    this.contexts = contexts;
     return this;
   }
 

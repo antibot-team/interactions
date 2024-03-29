@@ -2,6 +2,8 @@ import type { Snowflake } from "./@type";
 import type { ApplicationCommandLocalization } from "./ApplicationCommandLocalization";
 import { ApplicationCommandType } from "./ApplicationCommandType";
 import { ApplicationCommandOptions } from "./ApplicationCommandOptions";
+import { IntegrationType } from "./IntegrationTypes";
+import { InteractionContextType } from "./InteractionContextType";
 
 export interface ApplicationCommand {
   /**
@@ -76,6 +78,18 @@ export interface ApplicationCommand {
    * @returns boolean
    */
   readonly nsfw?: boolean;
+  /**
+   * integration_types
+   * Installation context(s) where the command is available, only for globally-scoped commands. Defaults to GUILD_INSTALL (0)
+   * @returns {IntegrationType[]}
+   */
+  readonly integration_types?: IntegrationType[];
+  /**
+   * contexts
+   * Interaction context(s) where the command can be used, only for globally-scoped commands. By default, all interaction context types included for new commands.
+   * @returns {InteractionContextType[]}
+   */
+  contexts?: InteractionContextType[];
   /**
    * version
    * Autoincrementing version identifier updated during substantial record changes
