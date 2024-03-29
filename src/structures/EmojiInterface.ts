@@ -7,47 +7,47 @@ export interface EmojiInterface {
    * emoji id
    * @returns {Snowflake}
    */
-  id: Snowflake;
+  readonly id: Snowflake;
   /**
    * name
    * emoji name
    * @returns {string}
    */
-  name: string;
+  readonly name: string;
   /**
    * roles
    * roles allowed to use this emoji
    * @returns {Snowflake[]}
    */
-  roles?: Snowflake[];
+  readonly roles?: Snowflake[];
   /**
    * user
    * user that created this emoji
    * @returns {UserInterface}
    */
-  user?: UserInterface;
+  readonly user?: UserInterface;
   /**
    * require_colons
    * whether this emoji must be wrapped in colons
    * @returns {boolean}
    */
-  require_colons?: boolean;
+  readonly require_colons?: boolean;
   /**
    * managed
    * whether this emoji is managed
    * @returns {boolean}
    */
-  managed?: boolean;
+  readonly managed?: boolean;
   /**
    * animated
    * whether this emoji is animated
    * @returns {boolean}
    */
-  animated?: boolean;
+  readonly animated?: boolean;
   /**
    * available
    * whether this emoji can be used, may be false due to loss of Server Boosts
    * @returns {boolean}
    */
-  available?: boolean;
+  readonly available?: boolean;
 }

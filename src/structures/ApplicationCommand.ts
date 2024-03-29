@@ -9,77 +9,77 @@ export interface ApplicationCommand {
    * Unique ID of command
    * @returns {Snowflake}
    */
-  id: Snowflake;
+  readonly id: Snowflake;
   /**
    * type
    * Type of command, defaults to 1
    * @returns {ApplicationCommandType}
    */
-  type?: ApplicationCommandType;
+  readonly type?: ApplicationCommandType;
   /**
    * application_id
    * ID of the parent application
    * @returns {Snowflake}
    */
-  application_id: Snowflake;
+  readonly application_id: Snowflake;
   /**
    * guild_id
    * Guild ID of the command, if not global
    * @returns {Snowflake}
    */
-  guild_id?: Snowflake;
+  readonly guild_id?: Snowflake;
   /**
    * name_localization
    * Localization dictionary for name field. Values follow the same restrictions as name
    * @returns {ApplicationCommandLocalization}
    */
-  name_localization?: ApplicationCommandLocalization;
+  readonly name_localization?: ApplicationCommandLocalization;
   /**
    * name
    * Name of command, 1-32 characters
    * @returns string
    */
-  name: string;
+  readonly name: string;
   /**
    * description
    * Description for CHAT_INPUT commands, 1-100 characters. Empty string for USER and MESSAGE commands
    * @returns string
    */
-  description: string;
+  readonly description: string;
   /**
    * description_localizations
    * Localization dictionary for description field. Values follow the same restrictions as description
    * @returns {ApplicationCommandLocalization}
    */
-  description_localizations?: ApplicationCommandLocalization;
+  readonly description_localizations?: ApplicationCommandLocalization;
   /**
    * options
    * Parameters for the command, max of 25
    * @returns {ApplicationCommandOptions[]}
    */
-  options?: ApplicationCommandOptions[];
+  readonly options?: ApplicationCommandOptions[];
   /**
    * default_member_permissions
    * Set of permissions represented as a bit set
    * @returns string
    */
-  default_member_permissions: string;
+  readonly default_member_permissions: string;
   /**
    * dm_permission
    * Indicates whether the command is available in DMs with the app, only for globally-scoped commands. By default, commands are visible.
    * @returns boolean
    */
-  dm_permission?: boolean;
+  readonly dm_permission?: boolean;
   /**
    * nsfw
    * Indicates whether the command is age-restricted, defaults to false
    * @returns boolean
    */
-  nsfw?: boolean;
+  readonly nsfw?: boolean;
   /**
    * version
    * Autoincrementing version identifier updated during substantial record changes
    * @returns {Snowflake}
    */
-  version: Snowflake;
+  readonly version: Snowflake;
 }
