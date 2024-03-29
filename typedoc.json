@@ -1,10 +1,10 @@
 {
-    "out": "./docs",
-    "name": "@antibot/interactions",
-    "readme": "./README.md",
-    "theme": "default",
-    "entryPoints": ["src/index.ts"],
-    "excludeExternals": false,
-    "excludePrivate": false,
-    "excludeInternal": false
-  }
+  "out": "./docs",
+  "name": "@antibot/interactions",
+  "readme": "./README.md",
+  "theme": "default",
+  "entryPoints": ["src/index.ts"],
+  "excludeExternals": false,
+  "excludePrivate": false,
+  "excludeInternal": false
+}
