@@ -112,7 +112,7 @@ export class RequestManager {
       method: opts.options.method,
       headers: {
         "Content-Type": opts.options.contentType,
-        "User-Agent": "Discordbot waifuslash",
+        "User-Agent": "@antibot/interactions",
         Authorization: "",
       },
       body: JSON.stringify(opts.data),
@@ -120,6 +120,7 @@ export class RequestManager {
 
     if (opts.publicKey) {
       request.headers.Authorization = `Bearer ${this.publicKey}`;
+      request.headers.Authorization = `Bot ${this.token}`;
     } else {
       request.headers.Authorization = `Bot ${this.token}`;
     }

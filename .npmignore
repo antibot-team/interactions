@@ -2,3 +2,7 @@ tests
 src
 scripts
 .vscode
+.eslintrc.json
+.eslintignore
+.editorconfig
+README.md
