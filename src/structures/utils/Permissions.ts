@@ -1,186 +1,50 @@
 export function Permissions(options: PermissionsPartial): bigint {
   let bitField: bigint = 0n;
-
-  if (options.CreateInstantInvite) {
-    bitField |= PermissionsBitField.CREATE_INSTANT_INVITE;
-  }
-
-  if (options.KickMembers) {
-    bitField |= PermissionsBitField.KICK_MEMBERS;
-  }
-
-  if (options.BanMembers) {
-    bitField |= PermissionsBitField.BAN_MEMBERS;
-  }
-
-  if (options.Administrator) {
-    bitField |= PermissionsBitField.ADMINISTRATOR;
-  }
-
-  if (options.ManageChannels) {
-    bitField |= PermissionsBitField.MANAGE_CHANNELS;
-  }
-
-  if (options.ManageGuild) {
-    bitField |= PermissionsBitField.MANAGE_GUILD;
-  }
-
-  if (options.AddReactions) {
-    bitField |= PermissionsBitField.ADD_REACTIONS;
-  }
-
-  if (options.ViewAuditLog) {
-    bitField |= PermissionsBitField.VIEW_AUDIT_LOG;
-  }
-
-  if (options.PrioritySpeaker) {
-    bitField |= PermissionsBitField.PRIORITY_SPEAKER;
-  }
-
-  if (options.Stream) {
-    bitField |= PermissionsBitField.STREAM;
-  }
-
-  if (options.ViewChannel) {
-    bitField |= PermissionsBitField.VIEW_CHANNEL;
-  }
-
-  if (options.SendMessages) {
-    bitField |= PermissionsBitField.SEND_MESSAGES;
-  }
-
-  if (options.SendTTSMessages) {
-    bitField |= PermissionsBitField.SEND_TTS_MESSAGES;
-  }
-
-  if (options.ManageMessages) {
-    bitField |= PermissionsBitField.MANAGE_MESSAGES;
-  }
-
-  if (options.EmbedLinks) {
-    bitField |= PermissionsBitField.EMBED_LINKS;
-  }
-
-  if (options.AttachFiles) {
-    bitField |= PermissionsBitField.ATTACH_FILES;
-  }
-
-  if (options.ReadMessageHistory) {
-    bitField |= PermissionsBitField.READ_MESSAGE_HISTORY;
-  }
-
-  if (options.MentionEveryone) {
-    bitField |= PermissionsBitField.MENTION_EVERYONE;
-  }
-
-  if (options.UseExternalEmojis) {
-    bitField |= PermissionsBitField.USE_EXTERNAL_EMOJIS;
-  }
-
-  if (options.ViewGuildInsights) {
-    bitField |= PermissionsBitField.VIEW_GUILD_INSIGHTS;
-  }
-
-  if (options.Connect) {
-    bitField |= PermissionsBitField.CONNECT;
-  }
-
-  if (options.Speak) {
-    bitField |= PermissionsBitField.SPEAK;
-  }
-
-  if (options.MuteMembers) {
-    bitField |= PermissionsBitField.MUTE_MEMBERS;
-  }
-
-  if (options.DeafenMembers) {
-    bitField |= PermissionsBitField.DEAFEN_MEMBERS;
-  }
-
-  if (options.MoveMembers) {
-    bitField |= PermissionsBitField.MOVE_MEMBERS;
-  }
-
-  if (options.UseVAD) {
-    bitField |= PermissionsBitField.USE_VAD;
-  }
-
-  if (options.ChangeNickname) {
-    bitField |= PermissionsBitField.CHANGE_NICKNAME;
-  }
-
-  if (options.ManageNicknames) {
-    bitField |= PermissionsBitField.MANAGE_NICKNAMES;
-  }
-
-  if (options.ManageRoles) {
-    bitField |= PermissionsBitField.MANAGE_ROLES;
-  }
-
-  if (options.ManageWebhooks) {
-    bitField |= PermissionsBitField.MANAGE_WEBHOOKS;
-  }
-
-  if (options.ManageGuildExpressions) {
-    bitField |= PermissionsBitField.MANAGE_GUILD_EXPRESSIONS;
-  }
-
-  if (options.UseApplicationCommands) {
-    bitField |= PermissionsBitField.USE_APPLICATION_COMMANDS;
-  }
-
-  if (options.RequestToSpeak) {
-    bitField |= PermissionsBitField.REQUEST_TO_SPEAK;
-  }
-
-  if (options.ManageEvents) {
-    bitField |= PermissionsBitField.MANAGE_EVENTS;
-  }
-
-  if (options.ManageThreads) {
-    bitField |= PermissionsBitField.MANAGE_THREADS;
-  }
-
-  if (options.CreatePublicThreads) {
-    bitField |= PermissionsBitField.CREATE_PUBLIC_THREADS;
-  }
-
-  if (options.CreatePrivateThreads) {
-    bitField |= PermissionsBitField.CREATE_PRIVATE_THREADS;
-  }
-
-  if (options.UseExternalStickers) {
-    bitField |= PermissionsBitField.USE_EXTERNAL_STICKERS;
-  }
-
-  if (options.SendMessagesInThreads) {
-    bitField |= PermissionsBitField.SEND_MESSAGES_IN_THREADS;
-  }
-
-  if (options.UseEmbeddedActivites) {
-    bitField |= PermissionsBitField.USE_EMBEDDED_ACTIVITIES;
-  }
-
-  if (options.ModerateMembers) {
-    bitField |= PermissionsBitField.MODERATE_MEMBERS;
-  }
-
-  if (options.ViewCreatorMonetizationAnylytics) {
-    bitField |= PermissionsBitField.VIEW_CREATOR_MONETIZATION_ANALYTICS;
-  }
-
-  if (options.UseSoundboard) {
-    bitField |= PermissionsBitField.USE_SOUNDBOARD;
-  }
-
-  if (options.UseExternalSounds) {
-    bitField |= PermissionsBitField.USE_EXTERNAL_SOUNDS;
-  }
-
-  if (options.SendVoiceMessages) {
-    bitField |= PermissionsBitField.SEND_VOICE_MESSAGES;
-  }
-
+  bitField |= options.CreateInstantInvite ? PermissionsBitField.CREATE_INSTANT_INVITE : 0n;
+  bitField |= options.KickMembers ? PermissionsBitField.KICK_MEMBERS : 0n;
+  bitField |= options.BanMembers ? PermissionsBitField.BAN_MEMBERS : 0n;
+  bitField |= options.Administrator ? PermissionsBitField.ADMINISTRATOR : 0n;
+  bitField |= options.ManageChannels ? PermissionsBitField.MANAGE_CHANNELS : 0n;
+  bitField |= options.ManageGuild ? PermissionsBitField.MANAGE_GUILD : 0n;
+  bitField |= options.AddReactions ? PermissionsBitField.ADD_REACTIONS : 0n;
+  bitField |= options.ViewAuditLog ? PermissionsBitField.VIEW_AUDIT_LOG : 0n;
+  bitField |= options.PrioritySpeaker ? PermissionsBitField.PRIORITY_SPEAKER : 0n;
+  bitField |= options.Stream ? PermissionsBitField.STREAM : 0n;
+  bitField |= options.ViewChannel ? PermissionsBitField.VIEW_CHANNEL : 0n;
+  bitField |= options.SendMessages ? PermissionsBitField.SEND_MESSAGES : 0n;
+  bitField |= options.SendTTSMessages ? PermissionsBitField.SEND_TTS_MESSAGES : 0n;
+  bitField |= options.ManageMessages ? PermissionsBitField.MANAGE_MESSAGES : 0n;
+  bitField |= options.EmbedLinks ? PermissionsBitField.EMBED_LINKS : 0n;
+  bitField |= options.AttachFiles ? PermissionsBitField.ATTACH_FILES : 0n;
+  bitField |= options.ReadMessageHistory ? PermissionsBitField.READ_MESSAGE_HISTORY : 0n;
+  bitField |= options.MentionEveryone ? PermissionsBitField.MENTION_EVERYONE : 0n;
+  bitField |= options.UseExternalEmojis ? PermissionsBitField.USE_EXTERNAL_EMOJIS : 0n;
+  bitField |= options.ViewGuildInsights ? PermissionsBitField.VIEW_GUILD_INSIGHTS : 0n;
+  bitField |= options.Connect ? PermissionsBitField.CONNECT : 0n;
+  bitField |= options.Speak ? PermissionsBitField.SPEAK : 0n;
+  bitField |= options.MuteMembers ? PermissionsBitField.MUTE_MEMBERS : 0n;
+  bitField |= options.DeafenMembers ? PermissionsBitField.DEAFEN_MEMBERS : 0n;
+  bitField |= options.MoveMembers ? PermissionsBitField.MOVE_MEMBERS : 0n;
+  bitField |= options.UseVAD ? PermissionsBitField.USE_VAD : 0n;
+  bitField |= options.ChangeNickname ? PermissionsBitField.CHANGE_NICKNAME : 0n;
+  bitField |= options.ManageNicknames ? PermissionsBitField.MANAGE_NICKNAMES : 0n;
+  bitField |= options.ManageRoles ? PermissionsBitField.MANAGE_ROLES : 0n;
+  bitField |= options.ManageWebhooks ? PermissionsBitField.MANAGE_WEBHOOKS : 0n;
+  bitField |= options.ManageGuildExpressions ? PermissionsBitField.MANAGE_GUILD_EXPRESSIONS : 0n;
+  bitField |= options.UseApplicationCommands ? PermissionsBitField.USE_APPLICATION_COMMANDS : 0n;
+  bitField |= options.RequestToSpeak ? PermissionsBitField.REQUEST_TO_SPEAK : 0n;
+  bitField |= options.ManageEvents ? PermissionsBitField.MANAGE_EVENTS : 0n;
+  bitField |= options.ManageThreads ? PermissionsBitField.MANAGE_THREADS : 0n;
+  bitField |= options.CreatePublicThreads ? PermissionsBitField.CREATE_PUBLIC_THREADS : 0n;
+  bitField |= options.CreatePrivateThreads ? PermissionsBitField.CREATE_PRIVATE_THREADS : 0n;
+  bitField |= options.UseExternalStickers ? PermissionsBitField.USE_EXTERNAL_STICKERS : 0n;
+  bitField |= options.SendMessagesInThreads ? PermissionsBitField.SEND_MESSAGES_IN_THREADS : 0n;
+  bitField |= options.UseEmbeddedActivites ? PermissionsBitField.USE_EMBEDDED_ACTIVITIES : 0n;
+  bitField |= options.ModerateMembers ? PermissionsBitField.MODERATE_MEMBERS : 0n;
+  bitField |= options.ViewCreatorMonetizationAnylytics ? PermissionsBitField.VIEW_CREATOR_MONETIZATION_ANALYTICS : 0n;
+  bitField |= options.UseSoundboard ? PermissionsBitField.USE_SOUNDBOARD : 0n;
+  bitField |= options.UseExternalSounds ? PermissionsBitField.USE_EXTERNAL_SOUNDS : 0n;
+  bitField |= options.SendVoiceMessages ? PermissionsBitField.SEND_VOICE_MESSAGES : 0n;
   return bitField;
 }
 

@@ -117,13 +117,7 @@ export class RequestManager {
       },
       body: JSON.stringify(opts.data),
     };
-
-    if (opts.publicKey) {
-      request.headers.Authorization = `Bearer ${this.publicKey}`;
-      request.headers.Authorization = `Bot ${this.token}`;
-    } else {
-      request.headers.Authorization = `Bot ${this.token}`;
-    }
+    request.headers.Authorization = opts.publicKey ? `Bearer ${this.publicKey}` : `Bot ${this.token}`;
     return new Promise(async (resolve, reject) => {
       return await fetch(this.api + opts.options.endpoint, request).then(
         (x) => {
