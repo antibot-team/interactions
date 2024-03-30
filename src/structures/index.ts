@@ -23,3 +23,4 @@ export * from "./EmojiInterface";
 export * from "./UserInterface";
 export * from "./Button";
 export * from "./IntegrationTypes";
+export * from "./InteractionContextType";
