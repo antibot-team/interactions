@@ -89,7 +89,7 @@ export interface ApplicationCommand {
    * Interaction context(s) where the command can be used, only for globally-scoped commands. By default, all interaction context types included for new commands.
    * @returns {InteractionContextType[]}
    */
-  contexts?: InteractionContextType[];
+  readonly contexts?: InteractionContextType[];
   /**
    * version
    * Autoincrementing version identifier updated during substantial record changes
