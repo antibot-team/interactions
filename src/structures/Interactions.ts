@@ -90,7 +90,7 @@ export class Interactions {
       })) as T;
   }
 
-  public async overwriteGlobalCommands(command: ICommand): Promise<void> {
+  public async overwriteGlobalCommands(command: ...ICommand): Promise<void> {
     await this.request.PUT<ApplicationCommand>({
       route: Routes.bulkOverGlobalApplicationCommands(this.options.botID),
       contentType: APPLICATION_TYPE.JSON,
