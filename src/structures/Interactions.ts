@@ -157,7 +157,7 @@ export class Interactions {
 
   public async overwriteGuildCommands(
     guildId: Snowflake,
-    command: ICommand | ICommand[]
+    command: ...ICommand
   ): Promise<void> {
     await this.request.PUT<ApplicationCommand>({
       route: Routes.bulkOverwriteGuildApplicationCommands(
