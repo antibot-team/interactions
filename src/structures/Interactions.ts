@@ -9,6 +9,7 @@ import { Wrap } from "./utils/Wrap";
 export class Interactions {
   private request: RequestManager;
   private api: string;
+  private routes: Routes;
   constructor(
     protected readonly options: {
       publicKey: string;
@@ -21,6 +22,7 @@ export class Interactions {
     this.options.publicKey = options.publicKey;
     this.options.botID = options.botID;
     this.options.botToken = options.botToken;
+    this.routes = new Routes();
     this.request = new RequestManager(
       this.options.publicKey,
       this.options.botToken,
@@ -42,7 +44,7 @@ export class Interactions {
     command: ICommand
   ): Promise<T> {
     return await Wrap(this.request.POST<T>({
-      route: Routes.createApplicationCommand(this.options.botID),
+      route: this.routes.createApplicationCommand(this.options.botID),
       contentType: APPLICATION_TYPE.JSON,
       data: command,
     })) as T;
@@ -54,7 +56,7 @@ export class Interactions {
   ): Promise<T> {
     return await Wrap(
       this.request.GET<T>({
-        route: Routes.getGlobalApplicationCommand(this.options.botID, commandId),
+        route: this.routes.getGlobalApplicationCommand(this.options.botID, commandId),
         contentType: APPLICATION_TYPE.JSON,
       })) as T;
   }
@@ -66,14 +68,14 @@ export class Interactions {
   ): Promise<T> {
     return await Wrap(
       this.request.PATCH<T>({
-        route: Routes.editGlobalApplicationCommand(this.options.botID, commandId),
+        route: this.routes.editGlobalApplicationCommand(this.options.botID, commandId),
         contentType: APPLICATION_TYPE.JSON,
         data: command,
       })) as T;
   }
   public async deleteGlobalCommand(commandId: Snowflake): Promise<void> {
     await this.request.DELETE<ApplicationCommand>({
-      route: Routes.deleteGlobalApplicationCommand(
+      route: this.routes.deleteGlobalApplicationCommand(
         this.options.botID,
         commandId
       ),
@@ -85,14 +87,14 @@ export class Interactions {
   public async getGlobalCommands<T>(): Promise<T> {
     return await Wrap(
       this.request.GET<T>({
-        route: Routes.getApplicationCommands(this.options.botID),
+        route: this.routes.getApplicationCommands(this.options.botID),
         contentType: APPLICATION_TYPE.JSON,
       })) as T;
   }
 
   public async overwriteGlobalCommands(...commands: ICommand[]): Promise<void> {
     await this.request.PUT<ApplicationCommand>({
-      route: Routes.bulkOverGlobalApplicationCommands(this.options.botID),
+      route: this.routes.bulkOverwriteGlobalApplicationCommands(this.options.botID),
       contentType: APPLICATION_TYPE.JSON,
       data: commands,
     });
@@ -105,7 +107,7 @@ export class Interactions {
   ): Promise<T> {
     return await Wrap(
       this.request.POST<T>({
-        route: Routes.createGuildApplicationCommand(this.options.botID, guildId),
+        route: this.routes.createGuildApplicationCommand(this.options.botID, guildId),
         contentType: APPLICATION_TYPE.JSON,
         data: command,
       }
@@ -118,7 +120,7 @@ export class Interactions {
   ): Promise<T> {
     return await Wrap(
       this.request.GET<T>({
-        route: Routes.getGuildApplicationCommands(this.options.botID, guildId),
+        route: this.routes.getGuildApplicationCommands(this.options.botID, guildId),
         contentType: APPLICATION_TYPE.JSON,
       })) as any;
   }
@@ -131,7 +133,7 @@ export class Interactions {
   }): Promise<T> {
     return await Wrap(
       this.request.PATCH<T>({
-        route: Routes.editGuildApplicationCommand({
+        route: this.routes.editGuildApplicationCommand({
           applicationId: this.options.botID,
           guildId: options.guildId,
           commandId: options.commandId,
@@ -146,7 +148,7 @@ export class Interactions {
     commandId: Snowflake
   ): Promise<void> {
     await this.request.DELETE<ApplicationCommand>({
-      route: Routes.deleteGuildApplicationCommand({
+      route: this.routes.deleteGuildApplicationCommand({
         applicationId: this.options.botID,
         guildId: guildId,
         commandId: commandId,
@@ -160,7 +162,7 @@ export class Interactions {
     ...commands: ICommand[]
   ): Promise<void> {
     await this.request.PUT<ApplicationCommand>({
-      route: Routes.bulkOverwriteGuildApplicationCommands(
+      route: this.routes.bulkOverwriteGuildApplicationCommands(
         this.options.botID,
         guildId
       ),
@@ -177,7 +179,7 @@ export class Interactions {
     return await Wrap(
       this.request.GET<T>({
         publicKey: true,
-        route: Routes.getGuildApplicationCommand({
+        route: this.routes.getGuildApplicationCommand({
           applicationId: this.options.botID,
           guildId: guildId,
           commandId: commandId,
@@ -193,7 +195,7 @@ export class Interactions {
     return await Wrap(
       this.request.GET<T>({
         publicKey: true,
-        route: Routes.getGuildApplicationCommandPermissions(
+        route: this.routes.getGuildApplicationCommandPermissions(
           this.options.botID,
           guildId
         ),
@@ -210,7 +212,7 @@ export class Interactions {
     return await Wrap(
       this.request.PUT<T>({
         publicKey: true,
-        route: Routes.editApplicationCommandPermissions({
+        route: this.routes.editApplicationCommandPermissions({
           applicationId: this.options.botID,
           guildId: options.guildId,
           commandId: options.commandId,

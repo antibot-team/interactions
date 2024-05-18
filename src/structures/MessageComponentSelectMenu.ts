@@ -1,5 +1,5 @@
 import type { Integer } from "./@type";
-import { ChannelTypeEnum } from "./ChannelTypeEnum";
+import { ChannelType } from "./ChannelType";
 import { MessageComponentOptions } from "./MessageComponentOptions";
 import { MessageComponentSelectDefaultValue } from "./MessageComponentSelectDefaultValue";
 import { MessageComponentType } from "./MessageComponentType";
@@ -28,7 +28,7 @@ export interface MessageComponentSelectMenu {
    * List of channel types to include in the channel select component (type 8)
    * @returns {ChannelTypeEnum[]}
    */
-  channel_types?: ChannelTypeEnum[];
+  channel_types?: ChannelType[];
   /**
    * @property {string} placeholder
    * Placeholder text if nothing is selected; max 150 characters

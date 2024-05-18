@@ -10,7 +10,7 @@ export * from "./ApplicationCommandPermissions";
 export * from "./ApplicationCommandPermissionType";
 export * from "./ApplicationFlags";
 export * from "./ChannelType";
-export * from "./ChannelTypeEnum";
+export * from "./ChannelType";
 export * from "./Command";
 export * from "./Interactions";
 export * from "./Routes";

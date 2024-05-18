@@ -34,3 +34,4 @@ export type ApplicationCommandLocalization =
 export type ApplicationCommandLocalizationPartial = Partial<
   Record<ApplicationCommandLocalization, string>
 >;
+

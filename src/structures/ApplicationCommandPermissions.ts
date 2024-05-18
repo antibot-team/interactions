@@ -7,17 +7,17 @@ export interface ApplicationCommandPermissions {
    * ID of the command or the application ID
    * @returns {Snowflake}
    */
-  id: Snowflake;
+  readonly id: Snowflake;
   /**
    * type
    * role (1), user (2), or channel (3)
    * @returns {ApplicationCommandPermissionsType}
    */
-  type: ApplicationCommandPermissionsType;
+  readonly type: ApplicationCommandPermissionsType;
   /**
    * permission
    * true to allow, false, to disallow
    * @returns boolean
    */
-  permission: boolean;
+  readonly permission: boolean;
 }
