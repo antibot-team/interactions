@@ -4,6 +4,7 @@ const {
   ApplicationCommandType,
   Interactions,
   Permissions,
+  PermissionsBitField,
 } = require("../dist");
 const config = require("./config.json");
 const interaction = new Interactions({
@@ -17,14 +18,17 @@ const cmd = new Command()
   .Name("ddd")
   .Description("d")
   .Options([])
-  .Permissions(
-    Permissions({
-      SendMessages: true,
-    })
-  )
+  .Permissions(Permissions({
+    Administrator: true,
+    AttachFiles: true
+  }))
   .ForNSFW(false);
 async function test() {
-  interaction.createGuildCommand("845605014663856158", cmd);
+  console.log(cmd)
+  console.log(Permissions({
+    Administrator: true,
+    AttachFiles: true
+  }))
 }
 
 test();
