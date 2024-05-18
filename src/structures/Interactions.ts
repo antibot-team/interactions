@@ -90,11 +90,11 @@ export class Interactions {
       })) as T;
   }
 
-  public async overwriteGlobalCommands(command: ...ICommand): Promise<void> {
+  public async overwriteGlobalCommands(...commands: ICommand[]): Promise<void> {
     await this.request.PUT<ApplicationCommand>({
       route: Routes.bulkOverGlobalApplicationCommands(this.options.botID),
       contentType: APPLICATION_TYPE.JSON,
-      data: command,
+      data: commands,
     });
   }
   public async createGuildCommand<T>(guildId: Snowflake, command: ICommand): Promise<ApplicationCommand>;
@@ -157,7 +157,7 @@ export class Interactions {
 
   public async overwriteGuildCommands(
     guildId: Snowflake,
-    command: ...ICommand
+    ...commands: ICommand[]
   ): Promise<void> {
     await this.request.PUT<ApplicationCommand>({
       route: Routes.bulkOverwriteGuildApplicationCommands(
@@ -165,7 +165,7 @@ export class Interactions {
         guildId
       ),
       contentType: APPLICATION_TYPE.JSON,
-      data: command,
+      data: commands,
     });
   }
   public async getGuildCommand<T>(guildId: Snowflake, commandId: Snowflake): Promise<ApplicationCommand>;
