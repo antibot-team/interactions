@@ -1,6 +1,6 @@
 {
     "name": "@antibot/interactions",
-    "version": "1.4.5",
+    "version": "1.4.6",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "author": "J_DDev",
