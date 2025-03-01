@@ -1,4 +1,4 @@
 export enum IntegrationType {
-  GUILD_INSTALL = 0,
-  USER_INSTALL = 1
+    GUILD_INSTALL = 0,
+    USER_INSTALL = 1,
 }

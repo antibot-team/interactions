@@ -1,9 +1,9 @@
-import { EmojiInterface } from "./EmojiInterface";
+import { EmojiInterface } from './EmojiInterface';
 
 export interface MessageComponentOptions {
-  label: string;
-  value: string;
-  description?: string;
-  emoji?: EmojiInterface;
-  default?: boolean;
+    label: string;
+    value: string;
+    description?: string;
+    emoji?: EmojiInterface;
+    default?: boolean;
 }

@@ -10,5 +10,5 @@ export enum ApplicationCommandType {
     /**
      * A UI-based command that shows up when you right click or tap on a message
      */
-    MESSAGE = 3
+    MESSAGE = 3,
 }

@@ -4,5 +4,6 @@ scripts
 .vscode
 .eslintrc.json
 .eslintignore
+.prettierrc.json
 .editorconfig
 README.md

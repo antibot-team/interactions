@@ -1,1 +1,1 @@
-export * from "./structures/index";
+export * from './structures/index';
