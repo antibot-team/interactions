@@ -5,21 +5,22 @@ import { Command, ICommand } from './Command';
 import { Routes } from './Routes';
 import { RequestManager } from './request/RequestManager';
 import { APPLICATION_TYPE } from './request/typings';
-import { Server, ServerOptions } from '@antibot/server';
 import { Wrap } from './utils/Wrap';
+
+type EditGuildCommandOptions = { guildId: Snowflake; commandId: Snowflake; command: ICommand };
+type EditGuildCommandPermissionsOptions = Omit<EditGuildCommandOptions, 'command'> &
+    Record<'permissions', ApplicationCommandPermissions[]>;
 
 export class Interactions {
     private request: RequestManager;
     private api: string;
     private routes: Routes;
-    public server: Server;
     constructor(
         protected readonly options: {
             publicKey: string;
             botID: string;
             botToken: string;
             debug?: boolean;
-            server?: ServerOptions;
         },
     ) {
         this.api = 'https://discord.com/api/v10';
@@ -27,7 +28,6 @@ export class Interactions {
         this.options.botID = options.botID;
         this.options.botToken = options.botToken;
         this.routes = new Routes();
-        this.server = new Server(this.options.server);
         this.request = new RequestManager(
             this.options.publicKey,
             this.options.botToken,
@@ -126,21 +126,9 @@ export class Interactions {
             }),
         )) as any;
     }
-    public async editGuildCommand<T>(options: {
-        guildId: Snowflake;
-        commandId: Snowflake;
-        command: ICommand;
-    }): Promise<ApplicationCommand>;
-    public async editGuildCommand<T>(options: {
-        guildId: Snowflake;
-        commandId: Snowflake;
-        command: ICommand;
-    }): Promise<void>;
-    public async editGuildCommand<T>(options: {
-        guildId: Snowflake;
-        commandId: Snowflake;
-        command: ICommand;
-    }): Promise<T> {
+    public async editGuildCommand<T>(options: EditGuildCommandOptions): Promise<ApplicationCommand>;
+    public async editGuildCommand<T>(options: EditGuildCommandOptions): Promise<void>;
+    public async editGuildCommand<T>(options: EditGuildCommandOptions): Promise<T> {
         return (await Wrap(
             this.request.PATCH<T>({
                 route: this.routes.editGuildApplicationCommand({
@@ -209,21 +197,15 @@ export class Interactions {
             }),
         )) as T;
     }
-    public async editGuildCommandPermissions<T>(options: {
-        guildId: Snowflake;
-        commandId: Snowflake;
-        permissions: ApplicationCommandPermissions[];
-    }): Promise<ApplicationCommandPermissions>;
-    public async editGuildCommandPermissions<T>(options: {
-        guildId: Snowflake;
-        commandId: Snowflake;
-        permissions: ApplicationCommandPermissions[];
-    }): Promise<void>;
-    public async editGuildCommandPermissions<T>(options: {
-        guildId: Snowflake;
-        commandId: Snowflake;
-        permissions: ApplicationCommandPermissions[];
-    }): Promise<T> {
+    public async editGuildCommandPermissions<T>(
+        options: EditGuildCommandPermissionsOptions,
+    ): Promise<ApplicationCommandPermissions>;
+    public async editGuildCommandPermissions<T>(
+        options: EditGuildCommandPermissionsOptions,
+    ): Promise<void>;
+    public async editGuildCommandPermissions<T>(
+        options: EditGuildCommandPermissionsOptions,
+    ): Promise<T> {
         return (await Wrap(
             this.request.PUT<T>({
                 publicKey: true,
