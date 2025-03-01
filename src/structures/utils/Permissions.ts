@@ -1,54 +1,5 @@
+type Permissions = keyof typeof PermissionsBitField;
 type PermissionsPartial = Partial<Record<Permissions, boolean>>;
-type Permissions =
-    | 'CreateInstantInvite'
-    | 'KickMembers'
-    | 'BanMembers'
-    | 'Administrator'
-    | 'ManageChannels'
-    | 'ManageGuild'
-    | 'AddReactions'
-    | 'ViewAuditLog'
-    | 'PrioritySpeaker'
-    | 'Stream'
-    | 'ViewChannel'
-    | 'SendMessages'
-    | 'SendTTSMessages'
-    | 'ManageMessages'
-    | 'EmbedLinks'
-    | 'AttachFiles'
-    | 'ReadMessageHistory'
-    | 'MentionEveryone'
-    | 'UseExternalEmojis'
-    | 'ViewGuildInsights'
-    | 'Connect'
-    | 'Speak'
-    | 'MuteMembers'
-    | 'DeafenMembers'
-    | 'MoveMembers'
-    | 'UseVAD'
-    | 'ChangeNickname'
-    | 'ManageNicknames'
-    | 'ManageRoles'
-    | 'ManageWebhooks'
-    | 'ManageGuildExpressions'
-    | 'UseApplicationCommands'
-    | 'RequestToSpeak'
-    | 'ManageEvents'
-    | 'ManageThreads'
-    | 'CreatePublicThreads'
-    | 'CreatePrivateThreads'
-    | 'UseExternalStickers'
-    | 'SendMessagesInThreads'
-    | 'UseEmbeddedActivites'
-    | 'ModerateMembers'
-    | 'ViewCreatorMonetizationAnalytics'
-    | 'UseSoundboard'
-    | 'UseExternalSounds'
-    | 'SendVoiceMessages'
-    | 'SendPolls'
-    | 'CreateGuildExpressions'
-    | 'CreateEvents'
-    | 'UseExternalApps';
 
 export const PermissionsBitField = {
     CreateInstantInvite: 1n << 0n,
@@ -130,8 +81,22 @@ export function PlantBigint(value: bigint | number | string): bigint {
           : BigInt(value);
 }
 
-export function PlantPermission(permission: Permissions): bigint {
-    return PermissionsBitField[permission];
+export function PlantPermission(permission: Permissions | bigint | number | string): bigint {
+    if (typeof permission === 'bigint') {
+        return permission;
+    }
+    if (typeof permission === 'number') {
+        return BigInt(permission);
+    }
+    if (typeof permission === 'string') {
+        if (permission.match(/^\d+n?$/)) {
+            return BigInt(permission.replace('n', ''));
+        }
+        if (permission in PermissionsBitField) {
+            return PermissionsBitField[permission as Permissions];
+        }
+    }
+    throw new Error(`Invalid permission: ${permission}`);
 }
 
 export function PerfectBitNUM(bitField: bigint | number | string): number {
